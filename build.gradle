@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'http://dl.bintray.com/vermeulen-mp/gradle-plugins' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('com.wiredforcode:gradle-spawn-plugin:0.6.0')
+    }
+}
+
+subprojects {
+
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+
+    version = '1.0.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile("org.springframework.boot:spring-boot-starter-jetty")
+        runtime('org.springframework.boot:spring-boot-devtools')
+        compileOnly('org.projectlombok:lombok')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+}

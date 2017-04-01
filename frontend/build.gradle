@@ -1,0 +1,8 @@
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-cache')
+    compile('com.hazelcast:hazelcast')
+    compile('com.hazelcast:hazelcast-spring')
+}
+bootRun {
+    systemProperty "spring.profiles.active", "hazelcast-cache"
+}
